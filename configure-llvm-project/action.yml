@@ -4,7 +4,7 @@ description: >
   to configure the llvm-project.  It will add the minimal set of CMake options
   necessary to build and test llvm-project.
 inputs:
-  cmake-args:
+  cmake_args:
     description: 'Arguments to pass to CMake when configuring'
     required: false
   os:
