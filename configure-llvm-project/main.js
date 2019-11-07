@@ -23,6 +23,10 @@ switch (os) {
     // The go binding tests fail on macos:
     // _cgo_export.c:3:10: fatal error: 'stdlib.h' file not found
     cmake_args += "-DLLVM_INCLUDE_GO_TESTS=OFF "
+    // There appears to be a race condition that causes
+    // llvm/test/ThinLTO/X86/cache.ll to fail on MacOS.  Disabling threads in
+    // lit fixes this.
+    cmake_args += "-DLLVM_LIT_ARGS=-svj1 "
     break;
   default:
     console.error("Unknown os: ${os}");
