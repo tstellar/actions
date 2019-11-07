@@ -1,4 +1,4 @@
-const { exec } = require('child_process');
+const { execSync } = require('child_process');
 const { spawn, spawnSync } = require('child_process');
 const path = require('path');
 const fs = require('fs');
@@ -7,7 +7,7 @@ const process = require('process');
 function run_command(cmd) {
   var p;
   console.log(`${cmd}`)
-  exec(cmd, (error, stdout, stderr) => {
+  execSync(cmd, (error, stdout, stderr) => {
     console.log(`${stdout}`);
     console.error(`${stderr}`);
     if (error) {
