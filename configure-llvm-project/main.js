@@ -49,3 +49,11 @@ p.stderr.on('data', (data) => {
 p.on('error', (code) => {
   process.exit(code);
 });
+
+p.on('exit', (code, signal) => {
+  if (signal) {
+    console.error(`Process exited: ${signal}`);
+    process.exit(1);
+  }
+  process.exit(code);
+});
