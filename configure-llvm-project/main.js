@@ -1,4 +1,4 @@
-const { exec } = require('child_process')
+const { spawn } = require('child_process')
 
 if (process.argv.length != 2) {
   console.error("usage: process.argv[0] process.argv[1]");
@@ -35,11 +35,17 @@ if (process.env.INPUT_CMAKE_ARGS) {
 
 cmd = 'cmake ' + cmake_args
 console.log(`${cmd}`)
-exec(cmd, (error, stdout, stderr) => {
 
-  console.log(`${stdout}`);
-  console.error(`${stderr}`);
-  if (error) {
-    process.exit(error);
-  }
+p = spawn(cmd, { shell : true});
+
+p.stdout.on('data', (data) => {
+  process.stdout.write(data.toString());
+});
+
+p.stderr.on('data', (data) => {
+  process.stderr.write(data.toString());
+});
+
+p.on('error', (code) => {
+  process.exit(code);
 });
