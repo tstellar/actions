@@ -9,6 +9,15 @@ if (process.argv.length != 2) {
 var arch = process.env.INPUT_ARCH.toLowerCase()
 var script = path.join(__dirname, 'vs_setup.bat')
 
+cmd = 'git config --global core.autocrlf false'
+exec(cmd, (error, stdout, stderr) => {
+  console.log(`${stdout}`);
+  console.error(`${stderr}`);
+  if (error) {
+    process.exit(error);
+  }
+});
+
 console.log(`${script}`)
 exec(`${script} -arch=${arch}`, (error, stdout, stderr) => {
 
