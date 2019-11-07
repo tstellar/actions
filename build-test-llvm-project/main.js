@@ -39,6 +39,16 @@ function get_action_cmd(action) {
   return 'node ' + path.join(__dirname, '..', action, 'main.js');
 }
 
+function handle_errors(code, signal) {
+  if (code) {
+    process.exit(code);
+  }
+  if (signal) {
+    console.error(`Process exited: ${signal}`);
+    process.exit(1);
+  }
+}
+
 if (process.argv.length != 2) {
   console.error("usage: process.argv[0] process.argv[1]");
   process.exit(1);
@@ -57,18 +67,11 @@ process.chdir(path.join(process.cwd(), 'build'));
 
 p = run_command_async(get_action_cmd('configure-llvm-project'));
 p.on('exit', (code, signal) => {
-  if (code) {
-    process.exit(code);
-  }
-  if (signal) {
-    console.error(`Process exited: ${signal}`);
-    process.exit(1);
+  if (code || signal) {
+    handle_errors(code, signal);
   }
   p = run_command_async('ninja check-all');
-  p.on('error', (code, signal) => {
-    if (signal) {
-      console.error(`Process exited: ${signal}`);
-    }
-    process.exit(code);
-  });
+  p.on('exit', (code, signal) => {
+    handle_errors(code, signal);
+  }
 });
