@@ -29,6 +29,6 @@ exec(cmd, (error, stdout, stderr) => {
   console.log(`${stdout}`);
   console.error(`${stderr}`);
   if (error) {
-    process.exit(error);
+    process.exit(error.code);
   }
 });
