@@ -36,7 +36,7 @@ function run_command_async(cmd) {
 }
 
 function get_action_cmd(action) {
-  return '/usr/bin/node ' + path.join(__dirname, '..', action, 'main.js');
+  return 'node ' + path.join(__dirname, '..', action, 'main.js');
 }
 
 if (process.argv.length != 2) {
