@@ -44,8 +44,6 @@ if (process.argv.length != 2) {
   process.exit(1);
 }
 
-var os = process.env.INPUT_OS.toLowerCase();
-
 user_cmake_args = process.env.INPUT_CMAKE_ARGS;
 process.env.INPUT_CMAKE_ARGS = "../llvm ";
 if (user_cmake_args) {
