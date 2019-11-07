@@ -73,5 +73,5 @@ p.on('exit', (code, signal) => {
   p = run_command_async('ninja check-all');
   p.on('exit', (code, signal) => {
     handle_errors(code, signal);
-  }
+  });
 });
