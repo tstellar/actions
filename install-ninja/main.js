@@ -20,7 +20,7 @@ switch (os) {
     cmd = 'brew install ninja';
     break;
   default:
-    console.error("Unknown os: ${os}");
+    console.error(`Unknown os: ${os}`);
     process.exit(1);
 }
 
