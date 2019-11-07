@@ -1,0 +1,12 @@
+name: 'Run LLVM Pipeline'
+description: 'Configure, Build, and Test LLVM'
+inputs:
+  os:
+    description: 'Host OS'
+    required: true
+  cmake_args:
+    description: 'CMake Arguments'
+    required: false
+runs:
+  using: 'node12'
+  main: 'main.js'
