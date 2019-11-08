@@ -27,3 +27,4 @@ exec(`${script} -arch=${arch}`, (error, stdout, stderr) => {
     process.exit(error);
   }
 });
+

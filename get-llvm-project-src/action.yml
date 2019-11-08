@@ -1,0 +1,6 @@
+name: 'Get LLVM source'
+description: 'Download and unpack LLVM sources'
+
+runs:
+  using: 'node12'
+  main: 'main.js'
