@@ -49,7 +49,10 @@ function handle_errors(code, signal) {
   }
 }
 
-const commit = process.env.GITHUB_SHA;
+var commit = process.env.GITHUB_SHA;
+if (process.env.INPUT_REF) {
+  commit = process.env.INPUT_REF
+}
 const tar_file = 'llvm-project.tar.gz'
 const url = `http://github.com/llvm/llvm-project/tarball/${commit}/${tar_file}`;
 const curl_cmd = `curl -L -O ${url}`
