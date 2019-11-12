@@ -70,7 +70,7 @@ p.on('exit', (code, signal) => {
   if (code || signal) {
     handle_errors(code, signal);
   }
-  p = run_command_async('ninja check-all');
+  p = run_command_async('ninja -v check-all');
   p.on('exit', (code, signal) => {
     handle_errors(code, signal);
   });
