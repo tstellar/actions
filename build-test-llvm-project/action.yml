@@ -4,6 +4,10 @@ inputs:
   cmake_args:
     description: 'CMake Arguments'
     required: false
+  os:
+    description: 'Host OS'
+    required: false
+    default: ${{ runner.os }}
 
 runs:
   using: 'node12'
