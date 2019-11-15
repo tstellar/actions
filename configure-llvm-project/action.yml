@@ -8,8 +8,9 @@ inputs:
     description: 'Arguments to pass to CMake when configuring'
     required: false
   os:
-    description: 'Host Operating system (case insensitive).  Possible values linux, ubuntu, windows, macos'
-    required: true
+    description: 'Host OS'
+    required: false
+    default: ${{ runner.os }}
 runs:
   using: 'node12'
   main: 'main.js'
