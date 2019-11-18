@@ -1,0 +1,6 @@
+name: 'Scan For Backports
+description: 'Scan issues to find commits to backport to stable branch'
+
+runs:
+  using: 'node12'
+  main: 'main.js'
