@@ -1,0 +1,21 @@
+name: "Create Pull Request"
+description: "Create a pull request"
+inputs:
+  token:
+    required: false
+    default: ${{ github.token }}
+
+  owner:
+    required: true
+  repo:
+    required: true
+  title:
+    required: true
+  head:
+    required: true
+  base:
+    required: true
+  
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
