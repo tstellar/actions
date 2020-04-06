@@ -11,13 +11,15 @@ async function run() {
   const head = core.getInput('head');
   const base = core.getInput('base');
 
-  octokit.pulls.create({
-  owner,
-  repo,
-  title,
-  head,
-  base,
-});
+  const pull = octokit.pulls.create({
+    owner,
+    repo,
+    title,
+    head,
+    base,
+  });
+
+  core.setOutput("pull_url", pull.html_url)
 }
 
 run();
