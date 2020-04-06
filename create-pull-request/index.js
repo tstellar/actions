@@ -19,7 +19,7 @@ async function run() {
     base,
   });
 
-  core.setOutput("pull_url", pull.html_url)
+  core.setOutput("pull_id", pull.id)
 }
 
 run();

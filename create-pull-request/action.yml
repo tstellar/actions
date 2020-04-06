@@ -15,7 +15,10 @@ inputs:
     required: true
   base:
     required: true
-  
+
+outputs:
+  pull_id:
+
 runs:
   using: 'node12'
   main: 'dist/index.js'
