@@ -17,7 +17,7 @@ inputs:
     required: true
 
 outputs:
-  pull_id:
+  pull_number:
 
 runs:
   using: 'node12'

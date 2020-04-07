@@ -20,7 +20,7 @@ async function run() {
   });
 
   console.log(pull.data)
-  core.setOutput("pull_id", pull.data.name)
+  core.setOutput("pull_number", pull.data.number)
 }
 
 run();
