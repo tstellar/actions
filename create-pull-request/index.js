@@ -20,7 +20,7 @@ async function run() {
   });
 
   console.log(pull.data.number)
-  core.setOutput("pull_number", pull.data.number)
+  core.setOutput("pull_number", String(pull.data.number))
 }
 
 run();
