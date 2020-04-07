@@ -19,7 +19,7 @@ async function run() {
     base,
   });
 
-  console.log(pull.data)
+  console.log(pull.data.number)
   core.setOutput("pull_number", pull.data.number)
 }
 
