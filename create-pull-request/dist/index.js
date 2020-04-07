@@ -508,7 +508,7 @@ async function run() {
   const head = core.getInput('head');
   const base = core.getInput('base');
 
-  const pull = octokit.pulls.create({
+  const pull = await octokit.pulls.create({
     owner,
     repo,
     title,
