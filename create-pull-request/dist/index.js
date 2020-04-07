@@ -516,7 +516,8 @@ async function run() {
     base,
   });
 
-  core.setOutput("pull_id", pull.id)
+  console.log(pull.data)
+  core.setOutput("pull_id", pull.data.name)
 }
 
 run();
