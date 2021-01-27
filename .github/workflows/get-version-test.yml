@@ -24,5 +24,5 @@ jobs:
         uses: ./get-llvm-version
       - name: Print output variables
         run: |
-          echo "${steps.version.outputs.LLVM_VERSION_MAJOR}.${steps.version.outputs.LLVM_VERSION_MINOR}.${steps.version.outputs.LLVM_VERSION_PATCH}"
+          echo "${{ steps.version.outputs.LLVM_VERSION_MAJOR }}.${{ steps.version.outputs.LLVM_VERSION_MINOR }}.${{ steps.version.outputs.LLVM_VERSION_PATCH }}"
 
