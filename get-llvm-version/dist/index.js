@@ -9,7 +9,6 @@ const core = __nccwpck_require__(186);
 const { exec } = __nccwpck_require__(129);
 const srcdir = core.getInput('srcdir');
 const cmd = "grep -o 'LLVM_VERSION_\\(MAJOR\\|MINOR\\|PATCH\\) [0-9]\\+' " + srcdir + "/llvm/CMakeLists.txt"
-//const cmd = "grep -o 'LLVM_VERSION_' " + srcdir + "/llvm/CMakeLists.txt"
 
 console.log(cmd);
 exec(cmd, (error, stdout, stderr) => {
@@ -20,11 +19,9 @@ exec(cmd, (error, stdout, stderr) => {
     return;
   }
   stdout.split("\n").forEach(function(line) {
-    console.log(line);
     data = line.split(" ");
-    console.log(data[0])
-		  console.log(data[1])
-    core.setOutput(data[0], data[1]);
+    if (data[0])
+      core.setOutput(data[0], data[1]);
   });
 });
 
